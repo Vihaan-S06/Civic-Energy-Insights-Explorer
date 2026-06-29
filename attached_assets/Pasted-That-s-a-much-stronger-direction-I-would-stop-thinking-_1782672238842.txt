@@ -1,0 +1,427 @@
+That's a much stronger direction. I would stop thinking of it as a "feature" and instead think of it as a platform for running energy competitions.
+
+Instead of everyone seeing the same generic challenge, there are Organizers and Participants.
+
+Core Concept
+Energy For Everyone Challenges become events.
+
+Someone (teacher, city, nonprofit, scout leader, company, club president, etc.) creates a challenge.
+
+Participants join with a code.
+
+Everyone completes missions over a set period of time.
+
+The leaderboard updates live.
+
+At the end, a winner is crowned.
+
+Think of it as a mix of Kahoot + Duolingo + fantasy sports, but for clean energy.
+
+Two Roles
+Organizer (Admin)
+The organizer controls everything.
+
+They create a challenge.
+
+Example
+
+Challenge Name
+Earth Week 2027
+
+Host
+Naperville Central High School
+
+Duration
+April 20–27
+
+Visibility
+Public / Private
+
+Join Code
+EARTH27
+
+Goal
+Reduce the most CO₂.
+Organizer Dashboard
+They can see
+
+Participants
+
+Teams
+
+Progress
+
+Leaderboard
+
+Submissions
+
+Activity Feed
+
+Statistics
+They Create Missions
+Instead of six hardcoded tasks.
+
+The organizer chooses from a library.
+
+Example
+
+☐ Turn off lights for one day
+
+☐ Bike to school
+
+☐ Complete Simulator Scenario
+
+☐ Lower thermostat
+
+☐ Research Community Solar
+
+☐ Install LED bulbs
+
+☐ Teach someone about renewables
+
+☐ Upload a picture of your reusable bottle
+
+☐ Share your simulator
+
+☐ Complete Energy Quiz
+Or create custom ones.
+
+Example
+
+Mission
+
+Convince one family member to replace a light bulb with an LED.
+
+Worth
+
+200 XP
+
+Evidence Required
+
+Photo
+
+Deadline
+
+Saturday
+Difficulty
+Easy
+
+Medium
+
+Hard
+
+Expert
+
+Each has different XP.
+
+Organizer can schedule missions
+Day 1
+
+Mission A
+
+Day 2
+
+Mission B
+
+Day 3
+
+Mission C
+
+Like an advent calendar.
+
+People return every day.
+
+Approvals
+Some missions require verification.
+
+For example
+
+Upload Photo
+
+Upload Screenshot
+
+Write Reflection
+
+Complete Quiz
+Organizer gets
+
+Pending Approvals
+
+23 submissions
+
+Approve
+
+Reject
+
+Leave Feedback
+Bonus Challenges
+Organizer can surprise everyone.
+
+Example
+
+⚡ Flash Challenge
+
+For the next 2 hours
+
+Complete the Grid Simulator
+
+Double XP
+This keeps engagement high.
+
+Participants
+When someone joins they see
+
+Welcome
+
+Earth Week 2027
+
+Hosted by
+
+Naperville Central
+
+You are on Team Solar Sparks
+
+Rank
+
+17
+
+XP
+
+340
+
+Level
+
+3
+Home Dashboard
+Everything important is here.
+
+Today's Missions
+
+Weekly Missions
+
+Personal Progress
+
+Team Progress
+
+Leaderboard
+
+Notifications
+
+Achievements
+Missions
+Each mission looks like a game quest.
+
+Bike Instead of Drive
+
+Difficulty
+
+★★★
+
+Reward
+
+250 XP
+
+CO₂ Saved
+
+8 lbs
+
+Estimated Time
+
+15 minutes
+
+Deadline
+
+Today
+
+Progress
+
+■■■■□□
+
+Accept Mission
+Evidence
+Some missions complete instantly.
+
+Others require proof.
+
+Example
+
+Take photo
+
+Upload screenshot
+
+Answer quiz
+
+Type reflection
+Organizer approves it.
+
+Levels
+Instead of just points.
+
+Players level up.
+
+Level 1
+
+Energy Rookie
+
+Level 2
+
+Power Saver
+
+Level 3
+
+Grid Builder
+
+Level 4
+
+Climate Champion
+
+Level 5
+
+Energy Master
+Energy Coins
+Besides XP.
+
+Players earn coins.
+
+Coins buy cosmetic rewards.
+
+Example
+
+Badges
+
+Themes
+
+Profile Frames
+
+Titles
+
+Team Banner Colors
+Nothing pay-to-win.
+
+Just fun.
+
+Team System
+Players can join teams.
+
+Blue Team
+
+Green Team
+
+Solar Squad
+
+Wind Warriors
+Leaderboard
+
+1.
+
+Solar Squad
+
+12,340 XP
+
+2.
+
+Wind Warriors
+
+11,920 XP
+
+3.
+
+Green Sparks
+
+10,882 XP
+Activity Feed
+Feels alive.
+
+Alex completed Bike to School
+
+Sophia unlocked Grid Builder
+
+Solar Squad passed 10,000 XP
+
+Mr. Smith created a Flash Challenge
+Organizer Analytics
+This is something most challenge apps don't have.
+
+Organizer sees
+
+Completion Rate
+
+Most Popular Mission
+
+Hardest Mission
+
+Average XP
+
+Average CO₂ Saved
+
+Participation by Day
+
+Daily Active Users
+Graphs
+
+Heatmaps
+
+Completion funnel
+
+End of Challenge
+Automatically closes.
+
+Everyone gets a report.
+
+Champion
+
+Solar Squad
+
+Total XP
+
+14,221
+
+CO₂ Saved
+
+2.3 tons
+
+Missions Completed
+
+482
+Awards
+Not just first place.
+
+Give lots of awards.
+
+Most Helpful
+
+Most Consistent
+
+Fastest Learner
+
+Simulator Expert
+
+Community Hero
+
+Best Team Spirit
+So more participants feel recognized.
+
+Replayability
+The biggest mistake would be making every challenge identical. Instead, each organizer should be able to customize:
+
+Challenge duration (1 day, 1 week, 1 month)
+
+Individual vs. team competition
+
+Public or private access with a join code
+
+Mission library plus custom missions
+
+XP values and bonus multipliers
+
+Whether evidence is required
+
+Daily mission release schedule
+
+Flash challenges and bonus events
+
+Scoring rules (XP only, CO₂ saved, simulator performance, or a weighted combination)
+
+This means a teacher, scout troop, city government, or company can all run the platform differently without changing the code.
+
+The end result isn't just a leaderboard—it's a reusable challenge platform where organizers can create unique competitions and participants have reasons to return every day. That structure is much more scalable and engaging than a single, hardcoded community challenge.

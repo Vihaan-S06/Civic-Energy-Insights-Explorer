@@ -1,0 +1,637 @@
+Energy For Everyone — Community Energy Challenge 3.0 (Major UX + Engagement Overhaul)
+You are working on an existing production-ready React + Express civic application called Energy For Everyone.
+
+The application already contains a Community Energy Challenge page, but it currently feels like a collection of buttons rather than a real community challenge.
+
+Your task is NOT to create a new page.
+Instead, transform the existing Challenge experience into something that feels like a real nationwide community initiative that users would actually return to every day.
+
+Maintain the existing architecture:
+
+React 18
+
+TypeScript
+
+Tailwind
+
+shadcn/ui
+
+Zustand
+
+TanStack Query
+
+Express backend
+
+OpenAPI → Orval generated hooks
+
+Existing challenge API
+
+The existing styling, routing, responsiveness, and accessibility standards should remain consistent.
+
+Current Problems
+The current challenge has several major UX issues that need to be solved.
+
+1. It doesn't feel like a challenge
+Users simply click six pledge cards.
+
+They all award the same number of points.
+
+They can all be completed in under a minute.
+
+There is:
+
+no progression
+
+no difficulty
+
+no commitment
+
+no anticipation
+
+no strategy
+
+The experience feels like checking boxes.
+
+Fix this completely.
+
+2. Missions need to become real missions
+Replace simple pledges with a real mission system.
+
+Every mission should contain:
+
+title
+
+icon
+
+category
+
+estimated CO₂ reduction
+
+estimated yearly savings
+
+estimated difficulty
+
+expected completion time
+
+why it matters
+
+educational explanation
+
+point reward
+
+progress
+
+Example:
+
+Reduce thermostat 2°F
+
+Difficulty:
+Easy
+
+Time:
+30 seconds
+
+Savings:
+$90/year
+
+CO₂:
+160 lbs/year
+
+Why this matters:
+Heating and cooling account for nearly half of residential electricity use.
+
+Progress:
+0%
+25%
+50%
+100%
+
+Instead of instantly completing, missions should feel like commitments.
+
+3. Multiple mission categories
+Organize missions into tabs.
+
+Examples:
+
+Daily Habits
+
+Home Efficiency
+
+Transportation
+
+Renewables
+
+Community
+
+Learning
+
+Examples:
+
+Daily Habits
+
+Turn lights off
+
+Run dishwasher overnight
+
+Use cold water laundry
+
+Transportation
+
+Carpool once
+
+Bike to work
+
+Walk to school
+
+Renewables
+
+Research community solar
+
+Compare green utility plans
+
+Install rooftop solar
+
+Learning
+
+Finish educational module
+
+Read EIA article
+
+Complete simulator challenge
+
+Community
+
+Recruit teammate
+
+Invite neighbor
+
+Share simulator design
+
+Every category should have 8–15 missions.
+
+4. Difficulty system
+Every mission should have:
+
+Easy
+
+Medium
+
+Hard
+
+Expert
+
+Rewards should scale.
+
+Easy:
+50 pts
+
+Medium:
+100 pts
+
+Hard:
+250 pts
+
+Expert:
+500 pts
+
+5. Daily missions
+Every day generate:
+
+3 random daily missions
+
+Completing all 3 awards a bonus.
+
+Example:
+
+Daily Bonus:
++300 points
+
+Reset every day.
+
+6. Weekly campaign
+The challenge should revolve around a real campaign.
+
+Examples:
+
+July Clean Energy Sprint
+
+Back To School Energy Challenge
+
+Earth Week Challenge
+
+Beat The Peak
+
+Winter Energy Saver
+
+Campaign card should show
+
+days remaining
+
+participants
+
+progress
+
+community goal
+
+Example
+
+Community Goal
+
+Save
+
+100 tons CO₂
+
+Current Progress
+
+73%
+
+Animated progress bar.
+
+7. Personal Level System
+Instead of only team points, users should have their own progression.
+
+Examples
+
+Level 1
+
+Energy Explorer
+
+Level 2
+
+Climate Advocate
+
+Level 3
+
+Neighborhood Helper
+
+Level 4
+
+Community Leader
+
+Level 5
+
+Grid Champion
+
+Each level unlocks:
+
+badge
+
+color
+
+description
+
+next reward
+
+XP required
+
+Progress bar
+
+Example
+
+420 / 600 XP
+
+8. Team Levels
+Teams should also level up.
+
+Example
+
+Bronze
+
+Silver
+
+Gold
+
+Platinum
+
+Diamond
+
+Display:
+
+level badge
+
+total XP
+
+members
+
+CO₂ saved
+
+missions completed
+
+growth this week
+
+9. Rich Leaderboard
+The leaderboard should become interactive.
+
+Allow sorting by
+
+Points
+
+CO₂ Saved
+
+Members
+
+Completed Missions
+
+Level
+
+Growth This Week
+
+Show:
+
+trend arrows
+
+level badges
+
+team avatar
+
+city
+
+type
+
+missions
+
+average member contribution
+
+animated rank changes
+
+Highlight the current user's team.
+
+10. Community Activity Feed
+Create a live-style feed.
+
+Example
+
+Naperville Central completed 18 missions
+
+Sarah unlocked Grid Champion
+
+Green Scouts recruited 5 members
+
+Austin Neighborhood passed 20 tons CO₂
+
+Texas Solar Club completed Expert Mission
+
+These can be generated from backend demo data.
+
+Feed should auto-refresh.
+
+11. Simulator Integration
+This is one of the biggest missing pieces.
+
+The flagship Simulator currently has no connection to the Challenge.
+
+Fix that.
+
+When a user creates a custom grid they should be able to click
+
+Submit to Challenge
+
+Submitting should:
+
+award points
+
+record simulator score
+
+unlock achievements
+
+appear in community feed
+
+increase team score
+
+increase campaign progress
+
+Award bonus points for
+
+A Grade grid
+
+Highest renewable %
+
+Lowest CO₂
+
+Lowest cost
+
+Balanced design
+
+12. Better Achievements
+Current badges are basic.
+
+Replace them with dozens.
+
+Examples
+
+First Mission
+
+5 Day Streak
+
+10 Missions
+
+Community Builder
+
+Grid Designer
+
+Master Planner
+
+1000 XP
+
+100 Missions
+
+Team Captain
+
+Carbon Crusher
+
+Renewable Hero
+
+Each badge should have:
+
+rarity
+
+description
+
+unlock animation
+
+13. Streak System
+Track:
+
+daily visits
+
+daily missions
+
+simulator submissions
+
+Display
+
+Current streak
+
+Longest streak
+
+Next reward
+
+Missing a day resets streak.
+
+14. Community Impact
+Instead of only showing points, translate achievements.
+
+Examples
+
+Your actions equal
+
+18 trees planted
+
+or
+
+Driving 2,300 fewer miles
+
+or
+
+Powering a home for 4 months
+
+Use EPA conversion factors where appropriate.
+
+15. Better Personal Dashboard
+"My Team" should become "My Impact".
+
+Show:
+
+current level
+
+XP
+
+streak
+
+missions completed
+
+CO₂ reduced
+
+money saved
+
+simulator submissions
+
+achievements
+
+next unlock
+
+team contribution
+
+weekly progress
+
+16. Team Management
+Allow users to
+
+Leave team
+
+Switch team
+
+Create another team
+
+Delete local data
+
+Reset progress
+
+Confirm before destructive actions.
+
+17. Realistic Data
+Current demo numbers feel fake.
+
+Improve all seeded data.
+
+Each team should have
+
+consistent growth
+
+recent activity
+
+mission counts
+
+CO₂
+
+XP
+
+member counts
+
+cities
+
+types
+
+Make the leaderboard believable.
+
+18. Educational Integration
+Every mission should teach something.
+
+Include expandable cards:
+
+Why this helps
+
+How electricity works
+
+Where emissions come from
+
+Interesting fact
+
+Links to relevant pages
+
+Example:
+
+"This mission saves approximately 160 lbs of CO₂ because residential heating represents nearly 45% of household energy consumption."
+
+19. Delightful Animations
+Add tasteful animations throughout:
+
+XP counting
+
+Level-up celebration
+
+Badge unlock animation
+
+Leaderboard movement
+
+Campaign progress
+
+Mission completion confetti
+
+Progress rings
+
+Hover effects
+
+Do not overdo animations.
+
+20. Accessibility
+Maintain accessibility throughout.
+
+Keyboard navigation
+
+ARIA labels
+
+Reduced motion support
+
+Screen-reader friendly
+
+Semantic headings
+
+Accessible progress indicators
+
+Focus management
+
+21. Mobile Experience
+Everything should remain fully responsive.
+
+Leaderboard transforms into cards.
+
+Mission cards stack vertically.
+
+Sticky progress header.
+
+Bottom CTA remains accessible.
+
+22. Performance
+Lazy load large components.
+
+Memoize expensive calculations.
+
+Keep API queries cached.
+
+Avoid unnecessary re-renders.
+
+Overall Design Goal
+The finished Challenge should feel less like a static demo and more like a polished civic engagement platform that schools, neighborhoods, clubs, and community organizations could realistically use over weeks or months. Users should have clear goals, meaningful progression, educational value, and compelling reasons to return regularly.
+
+Do not replace the existing architecture. Build on top of it. Reuse existing APIs where possible, extend the backend only where necessary, regenerate the OpenAPI client after API changes, and ensure the application remains TypeScript-clean, responsive, accessible, and production-ready.

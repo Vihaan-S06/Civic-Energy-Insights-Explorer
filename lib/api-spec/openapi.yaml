@@ -1,0 +1,1081 @@
+openapi: 3.1.0
+info:
+  # Do not change the title, if the title changes, the import paths will be broken
+  title: Api
+  version: 0.1.0
+  description: Energy For Everyone API
+servers:
+  - url: /api
+    description: Base API path
+tags:
+  - name: health
+    description: Health operations
+  - name: energy
+    description: Energy data operations
+  - name: challenge
+    description: Community Energy Challenge operations
+  - name: events
+    description: Challenge Events platform operations
+paths:
+  /healthz:
+    get:
+      operationId: healthCheck
+      tags: [health]
+      summary: Health check
+      responses:
+        "200":
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+
+  /energy/overview:
+    get:
+      operationId: getEnergyOverview
+      tags: [energy]
+      summary: Get energy overview
+      parameters:
+        - in: query
+          name: region
+          schema:
+            type: string
+          required: false
+      responses:
+        "200":
+          description: Energy overview data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EnergyOverview"
+
+  /energy/by-source:
+    get:
+      operationId: getEnergyBySource
+      tags: [energy]
+      summary: Get energy breakdown by source
+      parameters:
+        - in: query
+          name: region
+          schema:
+            type: string
+          required: false
+      responses:
+        "200":
+          description: Energy by source
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/EnergySource"
+
+  /energy/trends:
+    get:
+      operationId: getEnergyTrends
+      tags: [energy]
+      summary: Get energy consumption trends
+      parameters:
+        - in: query
+          name: region
+          schema:
+            type: string
+          required: false
+        - in: query
+          name: metric
+          schema:
+            type: string
+            enum: [consumption, generation, renewables, emissions]
+          required: false
+      responses:
+        "200":
+          description: Trend data
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TrendPoint"
+
+  /energy/alerts:
+    get:
+      operationId: getEnergyAlerts
+      tags: [energy]
+      summary: Get current energy alerts
+      parameters:
+        - in: query
+          name: region
+          schema:
+            type: string
+          required: false
+      responses:
+        "200":
+          description: List of alerts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/EnergyAlert"
+
+  /energy/regions:
+    get:
+      operationId: getRegions
+      tags: [energy]
+      summary: Get list of available regions
+      responses:
+        "200":
+          description: List of regions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Region"
+
+  /energy/recommendations:
+    get:
+      operationId: getRecommendations
+      tags: [energy]
+      summary: Get personalized action recommendations
+      parameters:
+        - in: query
+          name: region
+          schema:
+            type: string
+          required: false
+      responses:
+        "200":
+          description: List of recommendations
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RecommendationSet"
+
+  /energy/rankings:
+    get:
+      operationId: getRegionRankings
+      tags: [energy]
+      summary: Get regional rankings
+      responses:
+        "200":
+          description: Regional rankings
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RegionRankings"
+
+  /energy/generation-mix:
+    get:
+      operationId: getGenerationMix
+      tags: [energy]
+      summary: Get current generation mix snapshot
+      parameters:
+        - in: query
+          name: region
+          schema:
+            type: string
+          required: false
+      responses:
+        "200":
+          description: Generation mix snapshot
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GenerationMix"
+
+  /challenge/stats:
+    get:
+      operationId: getChallengeStats
+      tags: [challenge]
+      summary: Get community challenge stats
+      responses:
+        "200":
+          description: Challenge stats
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChallengeStats"
+
+  /challenge/leaderboard:
+    get:
+      operationId: getChallengeLeaderboard
+      tags: [challenge]
+      summary: Get challenge leaderboard
+      responses:
+        "200":
+          description: Leaderboard
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/LeaderboardEntry"
+
+  /challenge/campaign:
+    get:
+      operationId: getCurrentCampaign
+      tags: [challenge]
+      summary: Get the current monthly campaign
+      responses:
+        "200":
+          description: Current campaign
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CurrentCampaign"
+
+  /challenge/feed:
+    get:
+      operationId: getChallengeFeed
+      tags: [challenge]
+      summary: Get community activity feed
+      responses:
+        "200":
+          description: Activity feed
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/FeedItem"
+
+  /challenge/team:
+    post:
+      operationId: createChallengeTeam
+      tags: [challenge]
+      summary: Create a new team
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateTeamRequest"
+      responses:
+        "201":
+          description: Team created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChallengeTeam"
+
+  /challenge/join:
+    post:
+      operationId: joinChallengeTeam
+      tags: [challenge]
+      summary: Join an existing team
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/JoinTeamRequest"
+      responses:
+        "200":
+          description: Joined team
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChallengeTeam"
+
+  /challenge/pledge:
+    post:
+      operationId: submitChallengePledge
+      tags: [challenge]
+      summary: Submit an energy pledge
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PledgeRequest"
+      responses:
+        "200":
+          description: Pledge recorded
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PledgeResponse"
+
+  /challenge/simulator-submission:
+    post:
+      operationId: submitChallengeSimulator
+      tags: [challenge]
+      summary: Submit a simulator result to the challenge
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SimulatorSubmissionRequest"
+      responses:
+        "200":
+          description: Submission recorded
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SimulatorSubmissionResponse"
+
+  /events/mission-library:
+    get:
+      operationId: getEventMissionLibrary
+      tags: [events]
+      summary: Get mission library for organizers
+      responses:
+        "200":
+          description: Mission library
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/MissionLibraryItem"
+
+  /events:
+    post:
+      operationId: createChallengeEvent
+      tags: [events]
+      summary: Create a new challenge event
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateEventRequest"
+      responses:
+        "201":
+          description: Event created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateEventResponse"
+
+  /events/{code}:
+    get:
+      operationId: getChallengeEvent
+      tags: [events]
+      summary: Get event details by join code
+      parameters:
+        - in: path
+          name: code
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Event details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EventSummary"
+        "404":
+          description: Not found
+
+  /events/{code}/organizer:
+    get:
+      operationId: fetchOrganizerDashboard
+      tags: [events]
+      summary: Get organizer dashboard (pass organizerCode as query param)
+      parameters:
+        - in: path
+          name: code
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Organizer dashboard
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrganizerDashboard"
+        "403":
+          description: Invalid organizer code
+
+  /events/{code}/join:
+    post:
+      operationId: joinChallengeEvent
+      tags: [events]
+      summary: Join an event as a participant
+      parameters:
+        - in: path
+          name: code
+          required: true
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/JoinEventRequest"
+      responses:
+        "201":
+          description: Joined event
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JoinEventResponse"
+
+  /events/{code}/leaderboard:
+    get:
+      operationId: getEventLeaderboard
+      tags: [events]
+      summary: Get live event leaderboard
+      parameters:
+        - in: path
+          name: code
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Leaderboard
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EventLeaderboard"
+
+  /events/{code}/submit:
+    post:
+      operationId: submitEventMission
+      tags: [events]
+      summary: Submit mission completion
+      parameters:
+        - in: path
+          name: code
+          required: true
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SubmitMissionRequest"
+      responses:
+        "201":
+          description: Submission recorded
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SubmitMissionResponse"
+
+  /events/{code}/submissions/{submissionId}/review:
+    post:
+      operationId: reviewEventSubmission
+      tags: [events]
+      summary: Approve or reject a pending submission
+      parameters:
+        - in: path
+          name: code
+          required: true
+          schema: { type: string }
+        - in: path
+          name: submissionId
+          required: true
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ReviewSubmissionRequest"
+      responses:
+        "200":
+          description: Reviewed
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ReviewSubmissionResponse"
+
+  /events/{code}/flash:
+    post:
+      operationId: createFlashChallenge
+      tags: [events]
+      summary: Create a flash challenge
+      parameters:
+        - in: path
+          name: code
+          required: true
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FlashChallengeRequest"
+      responses:
+        "201":
+          description: Flash challenge created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FlashChallengeResponse"
+
+components:
+  schemas:
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+      required: [status]
+
+    EnergyOverview:
+      type: object
+      required: [region, regionName, totalGenerationGWh, renewablePercent, fossilPercent, nuclearPercent, co2IntensityGPerKWh, averageRetailPriceCentsPerKWh, totalConsumersMillions, headline, summary, lastUpdated]
+      properties:
+        region: { type: string }
+        regionName: { type: string }
+        totalGenerationGWh: { type: number }
+        renewablePercent: { type: number }
+        fossilPercent: { type: number }
+        nuclearPercent: { type: number }
+        co2IntensityGPerKWh: { type: number }
+        averageRetailPriceCentsPerKWh: { type: number }
+        totalConsumersMillions: { type: number }
+        headline: { type: string }
+        summary: { type: string }
+        lastUpdated: { type: string }
+        trendVsLastYear: { type: ["number", "null"] }
+
+    EnergySource:
+      type: object
+      required: [source, label, category, generationGWh, percent, co2GPerKWh, plainDescription, color]
+      properties:
+        source: { type: string }
+        label: { type: string }
+        category:
+          type: string
+          enum: [renewable, fossil, nuclear, other]
+        generationGWh: { type: number }
+        percent: { type: number }
+        co2GPerKWh: { type: number }
+        plainDescription: { type: string }
+        color: { type: string }
+
+    TrendPoint:
+      type: object
+      required: [month, label, totalGWh, renewableGWh, fossilGWh, nuclearGWh, co2IntensityGPerKWh, renewablePercent]
+      properties:
+        month: { type: string }
+        label: { type: string }
+        totalGWh: { type: number }
+        renewableGWh: { type: number }
+        fossilGWh: { type: number }
+        nuclearGWh: { type: number }
+        co2IntensityGPerKWh: { type: number }
+        renewablePercent: { type: number }
+
+    EnergyAlert:
+      type: object
+      required: [id, severity, title, plainMessage, category, issuedAt, region]
+      properties:
+        id: { type: string }
+        severity:
+          type: string
+          enum: [info, warning, critical]
+        title: { type: string }
+        plainMessage: { type: string }
+        category:
+          type: string
+          enum: [grid, emissions, price, supply, reliability]
+        issuedAt: { type: string }
+        region: { type: string }
+        expiresAt: { type: ["string", "null"] }
+        actionTip: { type: ["string", "null"] }
+
+    Region:
+      type: object
+      required: [code, name, type]
+      properties:
+        code: { type: string }
+        name: { type: string }
+        type:
+          type: string
+          enum: [national, state, grid]
+
+    GenerationMix:
+      type: object
+      required: [region, asOf, totalMW, sources, gridStatus, gridStatusLabel, gridStatusExplanation]
+      properties:
+        region: { type: string }
+        asOf: { type: string }
+        totalMW: { type: number }
+        sources:
+          type: array
+          items:
+            $ref: "#/components/schemas/GenerationMixSource"
+        gridStatus:
+          type: string
+          enum: [normal, stressed, critical]
+        gridStatusLabel: { type: string }
+        gridStatusExplanation: { type: string }
+
+    GenerationMixSource:
+      type: object
+      required: [source, label, category, currentMW, percent, color]
+      properties:
+        source: { type: string }
+        label: { type: string }
+        category:
+          type: string
+          enum: [renewable, fossil, nuclear, other]
+        currentMW: { type: number }
+        percent: { type: number }
+        color: { type: string }
+
+    Recommendation:
+      type: object
+      required: [id, priority, title, description, category, icon]
+      properties:
+        id: { type: string }
+        priority: { type: integer }
+        title: { type: string }
+        description: { type: string }
+        category:
+          type: string
+          enum: [solar, efficiency, advocacy, policy, community, grid]
+        icon: { type: string }
+
+    EmailTemplate:
+      type: object
+      required: [subject, body, recipient]
+      properties:
+        subject: { type: string }
+        body: { type: string }
+        recipient: { type: string }
+
+    RecommendationSet:
+      type: object
+      required: [region, regionName, topIssue, topIssueExplanation, recommendations, emailTemplates]
+      properties:
+        region: { type: string }
+        regionName: { type: string }
+        topIssue: { type: string }
+        topIssueExplanation: { type: string }
+        recommendations:
+          type: array
+          items:
+            $ref: "#/components/schemas/Recommendation"
+        emailTemplates:
+          type: array
+          items:
+            $ref: "#/components/schemas/EmailTemplate"
+
+    RegionRankingEntry:
+      type: object
+      required: [rank, region, regionName, type, renewablePercent, co2IntensityGPerKWh, averageRetailPriceCentsPerKWh, fossilPercent]
+      properties:
+        rank: { type: integer }
+        region: { type: string }
+        regionName: { type: string }
+        type: { type: string }
+        renewablePercent: { type: number }
+        co2IntensityGPerKWh: { type: number }
+        averageRetailPriceCentsPerKWh: { type: number }
+        fossilPercent: { type: number }
+
+    RegionRankings:
+      type: object
+      required: [byRenewables, byCO2, byPrice]
+      properties:
+        byRenewables:
+          type: array
+          items:
+            $ref: "#/components/schemas/RegionRankingEntry"
+        byCO2:
+          type: array
+          items:
+            $ref: "#/components/schemas/RegionRankingEntry"
+        byPrice:
+          type: array
+          items:
+            $ref: "#/components/schemas/RegionRankingEntry"
+
+    ChallengeStats:
+      type: object
+      required: [totalParticipants, totalTeams, estimatedCo2TonsSaved, totalSimulatorSubmissions]
+      properties:
+        totalParticipants: { type: integer }
+        totalTeams: { type: integer }
+        estimatedCo2TonsSaved: { type: number }
+        totalSimulatorSubmissions: { type: integer }
+
+    ActivityItem:
+      type: object
+      required: [id, text, timestamp, type]
+      properties:
+        id: { type: string }
+        text: { type: string }
+        timestamp: { type: string }
+        type:
+          type: string
+          enum: [pledge, simulator, join, achievement, share]
+
+    FeedItem:
+      type: object
+      required: [id, text, timestamp, type, teamName]
+      properties:
+        id: { type: string }
+        text: { type: string }
+        timestamp: { type: string }
+        type:
+          type: string
+          enum: [pledge, simulator, join, achievement, share]
+        teamName: { type: string }
+
+    CurrentCampaign:
+      type: object
+      required: [id, title, description, emoji, startDate, endDate, bonusMultiplier, badgeLabel, progressPercent, goalCo2Tons, currentCo2Tons, daysRemaining]
+      properties:
+        id: { type: string }
+        title: { type: string }
+        description: { type: string }
+        emoji: { type: string }
+        startDate: { type: string }
+        endDate: { type: string }
+        bonusMultiplier: { type: number }
+        badgeLabel: { type: string }
+        progressPercent: { type: number }
+        goalCo2Tons: { type: number }
+        currentCo2Tons: { type: number }
+        daysRemaining: { type: integer }
+
+    LeaderboardEntry:
+      type: object
+      required: [rank, id, name, type, memberCount, points, estimatedCo2TonsSaved, joinCode]
+      properties:
+        rank: { type: integer }
+        id: { type: string }
+        name: { type: string }
+        type: { type: string }
+        city: { type: ["string", "null"] }
+        memberCount: { type: integer }
+        points: { type: integer }
+        estimatedCo2TonsSaved: { type: number }
+        joinCode: { type: string }
+        missionsCompleted: { type: integer }
+
+    ChallengeTeam:
+      type: object
+      required: [id, name, type, memberCount, points, estimatedCo2TonsSaved, joinCode, rank, recentActivity]
+      properties:
+        id: { type: string }
+        name: { type: string }
+        type: { type: string }
+        city: { type: ["string", "null"] }
+        description: { type: ["string", "null"] }
+        memberCount: { type: integer }
+        points: { type: integer }
+        estimatedCo2TonsSaved: { type: number }
+        joinCode: { type: string }
+        rank: { type: integer }
+        missionsCompleted: { type: integer }
+        recentActivity:
+          type: array
+          items:
+            $ref: "#/components/schemas/ActivityItem"
+
+    CreateTeamRequest:
+      type: object
+      required: [name, type]
+      properties:
+        name: { type: string }
+        type: { type: string }
+        city: { type: ["string", "null"] }
+        description: { type: ["string", "null"] }
+
+    JoinTeamRequest:
+      type: object
+      required: [joinCode]
+      properties:
+        joinCode: { type: string }
+        memberName: { type: ["string", "null"] }
+
+    PledgeRequest:
+      type: object
+      required: [teamId, pledgeId, pledgeName, co2KgSaved]
+      properties:
+        teamId: { type: string }
+        pledgeId: { type: string }
+        pledgeName: { type: string }
+        co2KgSaved: { type: number }
+        pointsToAward: { type: integer }
+
+    PledgeResponse:
+      type: object
+      required: [pointsAwarded, totalPoints, newRank, estimatedCo2TonsSaved]
+      properties:
+        pointsAwarded: { type: integer }
+        totalPoints: { type: integer }
+        newRank: { type: integer }
+        estimatedCo2TonsSaved: { type: number }
+        missionsCompleted: { type: integer }
+
+    SimulatorSubmissionRequest:
+      type: object
+      required: [teamId, gridScore, renewablePercent]
+      properties:
+        teamId: { type: string }
+        gridScore: { type: number }
+        renewablePercent: { type: number }
+        action: { type: ["string", "null"] }
+
+    SimulatorSubmissionResponse:
+      type: object
+      required: [pointsAwarded, totalPoints, newRank]
+      properties:
+        pointsAwarded: { type: integer }
+        totalPoints: { type: integer }
+        newRank: { type: integer }
+        unlockedBadge: { type: ["string", "null"] }
+
+    MissionLibraryItem:
+      type: object
+      required: [id, title, description, difficulty, xp, co2SavedKg, requiresEvidence, evidenceType, category, estimatedMinutes]
+      properties:
+        id: { type: string }
+        title: { type: string }
+        description: { type: string }
+        difficulty: { type: string, enum: [Easy, Medium, Hard, Expert] }
+        xp: { type: integer }
+        co2SavedKg: { type: number }
+        requiresEvidence: { type: boolean }
+        evidenceType: { type: string, enum: [none, photo, screenshot, reflection, quiz] }
+        category: { type: string }
+        estimatedMinutes: { type: integer }
+
+    EventMission:
+      type: object
+      required: [id, title, description, difficulty, xp, co2SavedKg, requiresEvidence, evidenceType, category, estimatedMinutes, bonusMultiplier, isFlash]
+      properties:
+        id: { type: string }
+        title: { type: string }
+        description: { type: string }
+        difficulty: { type: string, enum: [Easy, Medium, Hard, Expert] }
+        xp: { type: integer }
+        co2SavedKg: { type: number }
+        requiresEvidence: { type: boolean }
+        evidenceType: { type: string, enum: [none, photo, screenshot, reflection, quiz] }
+        category: { type: string }
+        estimatedMinutes: { type: integer }
+        bonusMultiplier: { type: number }
+        isFlash: { type: boolean }
+        flashExpiresAt: { type: ["string", "null"] }
+        deadline: { type: ["string", "null"] }
+
+    EventSummary:
+      type: object
+      required: [id, name, host, description, goal, joinCode, startDate, endDate, isPrivate, status, participantCount, missions]
+      properties:
+        id: { type: string }
+        name: { type: string }
+        host: { type: string }
+        description: { type: string }
+        goal: { type: string }
+        joinCode: { type: string }
+        startDate: { type: string }
+        endDate: { type: string }
+        isPrivate: { type: boolean }
+        status: { type: string, enum: [active, closed] }
+        participantCount: { type: integer }
+        missions:
+          type: array
+          items: { $ref: "#/components/schemas/EventMission" }
+
+    EventParticipantEntry:
+      type: object
+      required: [rank, id, name, xp, completions]
+      properties:
+        rank: { type: integer }
+        id: { type: string }
+        name: { type: string }
+        teamName: { type: ["string", "null"] }
+        xp: { type: integer }
+        completions: { type: integer }
+
+    EventTeamEntry:
+      type: object
+      required: [rank, name, xp, members, co2Kg, completions]
+      properties:
+        rank: { type: integer }
+        name: { type: string }
+        xp: { type: integer }
+        members: { type: integer }
+        co2Kg: { type: number }
+        completions: { type: integer }
+
+    EventLeaderboard:
+      type: object
+      required: [participants, teams]
+      properties:
+        participants:
+          type: array
+          items: { $ref: "#/components/schemas/EventParticipantEntry" }
+        teams:
+          type: array
+          items: { $ref: "#/components/schemas/EventTeamEntry" }
+
+    EventSubmission:
+      type: object
+      required: [id, participantId, participantName, missionId, missionTitle, status, submittedAt]
+      properties:
+        id: { type: string }
+        participantId: { type: string }
+        participantName: { type: string }
+        missionId: { type: string }
+        missionTitle: { type: string }
+        status: { type: string, enum: [pending, approved, rejected] }
+        evidence: { type: ["string", "null"] }
+        submittedAt: { type: string }
+        reviewedAt: { type: ["string", "null"] }
+        feedback: { type: ["string", "null"] }
+
+    OrganizerDashboard:
+      type: object
+      required: [event, participants, teamLeaderboard, pendingSubmissions, stats]
+      properties:
+        event:
+          type: object
+          required: [id, name, host, description, goal, joinCode, organizerCode, startDate, endDate, isPrivate, status, missions]
+          properties:
+            id: { type: string }
+            name: { type: string }
+            host: { type: string }
+            description: { type: string }
+            goal: { type: string }
+            joinCode: { type: string }
+            organizerCode: { type: string }
+            startDate: { type: string }
+            endDate: { type: string }
+            isPrivate: { type: boolean }
+            status: { type: string }
+            missions:
+              type: array
+              items: { $ref: "#/components/schemas/EventMission" }
+        participants:
+          type: array
+          items: { $ref: "#/components/schemas/EventParticipantEntry" }
+        teamLeaderboard:
+          type: array
+          items: { $ref: "#/components/schemas/EventTeamEntry" }
+        pendingSubmissions:
+          type: array
+          items: { $ref: "#/components/schemas/EventSubmission" }
+        stats:
+          type: object
+          required: [totalParticipants, totalXp, totalCo2Kg, approvedSubmissions, pendingSubmissions, completionRate]
+          properties:
+            totalParticipants: { type: integer }
+            totalXp: { type: integer }
+            totalCo2Kg: { type: number }
+            approvedSubmissions: { type: integer }
+            pendingSubmissions: { type: integer }
+            completionRate: { type: number }
+
+    CreateEventRequest:
+      type: object
+      required: [name, host, startDate, endDate]
+      properties:
+        name: { type: string }
+        host: { type: string }
+        description: { type: string }
+        goal: { type: string }
+        startDate: { type: string }
+        endDate: { type: string }
+        isPrivate: { type: boolean }
+        missionIds:
+          type: array
+          items: { type: string }
+        customMissions:
+          type: array
+          items:
+            type: object
+            required: [title, description, difficulty, xp]
+            properties:
+              title: { type: string }
+              description: { type: string }
+              difficulty: { type: string, enum: [Easy, Medium, Hard, Expert] }
+              xp: { type: integer }
+              co2SavedKg: { type: number }
+              requiresEvidence: { type: boolean }
+              evidenceType: { type: string, enum: [none, photo, screenshot, reflection, quiz] }
+
+    CreateEventResponse:
+      type: object
+      required: [id, joinCode, organizerCode, name]
+      properties:
+        id: { type: string }
+        joinCode: { type: string }
+        organizerCode: { type: string }
+        name: { type: string }
+
+    JoinEventRequest:
+      type: object
+      required: [name]
+      properties:
+        name: { type: string }
+        teamName: { type: string }
+
+    JoinEventResponse:
+      type: object
+      required: [participantId, name, xp, rank, missions]
+      properties:
+        participantId: { type: string }
+        name: { type: string }
+        teamName: { type: ["string", "null"] }
+        xp: { type: integer }
+        rank: { type: integer }
+        missions:
+          type: array
+          items: { $ref: "#/components/schemas/EventMission" }
+
+    SubmitMissionRequest:
+      type: object
+      required: [participantId, missionId]
+      properties:
+        participantId: { type: string }
+        missionId: { type: string }
+        evidence: { type: string }
+
+    SubmitMissionResponse:
+      type: object
+      required: [submissionId, status, xpAwarded, totalXp, rank, message]
+      properties:
+        submissionId: { type: string }
+        status: { type: string, enum: [pending, approved] }
+        xpAwarded: { type: integer }
+        totalXp: { type: integer }
+        rank: { type: integer }
+        message: { type: string }
+
+    ReviewSubmissionRequest:
+      type: object
+      required: [organizerCode, action]
+      properties:
+        organizerCode: { type: string }
+        action: { type: string, enum: [approve, reject] }
+        feedback: { type: string }
+
+    ReviewSubmissionResponse:
+      type: object
+      required: [submissionId, status, xpAwarded]
+      properties:
+        submissionId: { type: string }
+        status: { type: string }
+        xpAwarded: { type: integer }
+
+    FlashChallengeRequest:
+      type: object
+      required: [organizerCode, missionId]
+      properties:
+        organizerCode: { type: string }
+        missionId: { type: string }
+        durationMinutes: { type: integer }
+        bonusMultiplier: { type: number }
+
+    FlashChallengeResponse:
+      type: object
+      required: [missionId, title, bonusMultiplier, expiresAt]
+      properties:
+        missionId: { type: string }
+        title: { type: string }
+        bonusMultiplier: { type: number }
+        expiresAt: { type: string }

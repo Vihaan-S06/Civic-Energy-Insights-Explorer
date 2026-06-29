@@ -1,0 +1,538 @@
+# Energy For Everyone — Community Energy Challenge 2.0
+
+You are a senior staff software engineer working on the Energy For Everyone codebase.
+
+Before making changes, inspect the existing Challenge page, backend API, shared components, React Query hooks, OpenAPI contracts, Zustand stores, and UI patterns.
+
+DO NOT rewrite existing functionality.
+
+Instead, evolve the Challenge into something that feels like a real civic initiative instead of a demo leaderboard.
+
+Maintain the existing design language:
+- React
+- TypeScript
+- Tailwind
+- shadcn/ui
+- Express
+- Drizzle
+- OpenAPI
+- Orval
+- TanStack Query
+
+Follow all existing architecture.
+
+--------------------------------------------------
+
+## OBJECTIVE
+
+Right now users can:
+
+- Create teams
+- Join teams
+- Make pledges
+- Earn points
+- View a leaderboard
+
+This is good, but it lacks purpose.
+
+The goal is to make users feel like they are participating in an actual community campaign.
+
+Every action should answer:
+
+"Why does this matter?"
+
+--------------------------------------------------
+
+# PHASE 1 — MONTHLY COMMUNITY CAMPAIGNS
+
+Instead of a generic leaderboard, introduce rotating challenges.
+
+Examples:
+
+🌎 July Challenge
+Reduce Peak-Hour Energy
+
+☀ August Challenge
+Solar Awareness Month
+
+💡 September Challenge
+Lighting Efficiency
+
+❄ Winter Challenge
+Reduce Heating Waste
+
+Each challenge has:
+
+• Title
+• Description
+• Start/end date
+• Progress bar
+• Bonus point multiplier
+• Special badge
+
+Show this prominently at the top of the page.
+
+--------------------------------------------------
+
+# PHASE 2 — COMMUNITY MISSIONS
+
+Replace simple pledges with missions.
+
+Example missions:
+
+✅ Replace one incandescent bulb with an LED
+
+✅ Unplug idle electronics for one week
+
+✅ Lower thermostat by 2°F
+
+✅ Wash clothes with cold water
+
+✅ Learn how your local grid works
+
+Each mission includes:
+
+• Difficulty (Easy / Medium / Hard)
+
+• Estimated completion time
+
+• Estimated annual savings
+
+• Estimated CO₂ reduction
+
+• Educational explanation
+
+Example:
+
+LED Upgrade
+
+Difficulty:
+Easy
+
+Time:
+10 minutes
+
+Estimated Savings:
+$35/year
+
+Estimated CO₂ Reduction:
+85 lbs/year
+
+--------------------------------------------------
+
+# PHASE 3 — LEVEL SYSTEM
+
+Instead of just points.
+
+Create community levels.
+
+Example:
+
+Level 1
+Community Starter
+
+Level 2
+Neighborhood Helper
+
+Level 3
+Energy Advocate
+
+Level 4
+Community Leader
+
+Level 5
+Grid Champion
+
+Each level unlocks:
+
+• Badge
+• New profile border
+• Celebration animation
+
+--------------------------------------------------
+
+# PHASE 4 — STREAKS
+
+Encourage returning users.
+
+Examples:
+
+🔥 3-day streak
+
+🔥 7-day streak
+
+🔥 30-day streak
+
+Track:
+
+• Daily visits
+
+• Missions completed
+
+• Simulator submissions
+
+Display:
+
+Current streak
+
+Longest streak
+
+--------------------------------------------------
+
+# PHASE 5 — TEAM PROFILE PAGE
+
+Every team should feel alive.
+
+Each team has:
+
+Cover card
+
+Description
+
+City
+
+Type
+
+Members
+
+Rank
+
+Join code
+
+Creation date
+
+Weekly progress
+
+Monthly progress
+
+CO₂ saved
+
+Trees equivalent
+
+Recent activity
+
+Achievements
+
+Community goal progress
+
+--------------------------------------------------
+
+# PHASE 6 — REAL COMMUNITY GOALS
+
+Instead of arbitrary points.
+
+Every team should have a community goal.
+
+Examples:
+
+Reduce an estimated
+
+10 tons CO₂
+
+25 tons CO₂
+
+100 tons CO₂
+
+Display:
+
+Current estimate
+
+Remaining amount
+
+Completion %
+
+Large progress ring
+
+When completed:
+
+Confetti animation
+
+Badge unlocked
+
+--------------------------------------------------
+
+# PHASE 7 — MAP VISUALIZATION
+
+Create a simple interactive US map.
+
+Show:
+
+Cities with active teams
+
+Bubble size:
+
+Number of members
+
+Bubble color:
+
+Estimated impact
+
+Hover shows:
+
+Team name
+
+City
+
+Members
+
+CO₂ saved
+
+This makes the project feel much larger.
+
+--------------------------------------------------
+
+# PHASE 8 — BETTER LEADERBOARD
+
+Current leaderboard is just points.
+
+Improve it.
+
+Columns:
+
+Rank
+
+Team
+
+City
+
+Members
+
+CO₂ Saved
+
+Missions Completed
+
+Current Streak
+
+Community Level
+
+Weekly Growth
+
+Allow sorting by:
+
+Points
+
+CO₂ Saved
+
+Newest
+
+Largest Team
+
+Most Active
+
+Fastest Growing
+
+--------------------------------------------------
+
+# PHASE 9 — PERSONAL DASHBOARD
+
+Every participant should have:
+
+"My Impact"
+
+Display:
+
+Points
+
+Completed Missions
+
+Current Streak
+
+Estimated CO₂ Saved
+
+Simulator Designs Submitted
+
+Badges Earned
+
+Current Level
+
+Community Rank
+
+Weekly Progress
+
+--------------------------------------------------
+
+# PHASE 10 — IMPACT EXPLAINER
+
+Every estimate should explain itself.
+
+Instead of:
+
+8.4 tons saved
+
+Show:
+
+Your team's completed missions are estimated to reduce emissions by approximately 8.4 metric tons of CO₂ per year.
+
+That's roughly equal to:
+
+🌳 420 trees planted
+
+🚗 Taking 2 gasoline cars off the road for a year
+
+🏠 Powering 5 average homes with clean electricity
+
+Include a tooltip explaining that these are educational estimates based on EPA conversion factors and average household energy use.
+
+--------------------------------------------------
+
+# PHASE 11 — SIMULATOR INTEGRATION
+
+The simulator should become part of the challenge.
+
+After building a grid:
+
+Prompt:
+
+Submit this design to your team?
+
+Display:
+
+Grid Score
+
+Renewables
+
+CO₂
+
+Price
+
+Reliability
+
+Award points.
+
+Record activity.
+
+If Grid Score > 90:
+
+Unlock
+
+Master Grid Designer badge.
+
+--------------------------------------------------
+
+# PHASE 12 — COMMUNITY NEWS
+
+Create a feed.
+
+Examples:
+
+🏆 Naperville Central reached Level 5.
+
+🌱 Green Oaks Neighborhood completed 100 missions.
+
+⚡ Texas Energy Club submitted 24 simulator designs.
+
+💡 3,200 pledges were completed this week.
+
+Generate from activity data.
+
+--------------------------------------------------
+
+# PHASE 13 — VISUAL POLISH
+
+Make the page feel rewarding.
+
+Add:
+
+Animated counters
+
+Achievement unlock animations
+
+Progress rings
+
+Hover effects
+
+Micro-interactions
+
+Completion checkmarks
+
+Success toasts
+
+Celebration when leveling up
+
+Maintain tasteful animations consistent with the rest of the site.
+
+--------------------------------------------------
+
+# PHASE 14 — EDUCATIONAL VALUE
+
+Every mission should teach something.
+
+Include a "Why it matters" section.
+
+Example:
+
+LED lighting uses approximately 75% less electricity than traditional incandescent bulbs and typically lasts much longer, reducing both energy use and replacement costs.
+
+Every mission should leave the user having learned something.
+
+--------------------------------------------------
+
+# PHASE 15 — FUTURE-READY DATA MODEL
+
+Without breaking existing APIs, prepare the backend for:
+
+• Persistent database storage
+
+• User accounts
+
+• Team administrators
+
+• Seasonal competitions
+
+• Weekly leaderboards
+
+• School vs School competitions
+
+• Neighborhood vs Neighborhood competitions
+
+• City-wide campaigns
+
+Keep all current endpoints working.
+
+--------------------------------------------------
+
+# ACCESSIBILITY
+
+Maintain:
+
+ARIA labels
+
+Keyboard navigation
+
+Semantic headings
+
+High color contrast
+
+Screen-reader friendly tables
+
+Accessible animations (respect reduced-motion preferences)
+
+--------------------------------------------------
+
+# PERFORMANCE
+
+Lazy-load heavy sections.
+
+Memoize expensive calculations.
+
+Cache leaderboard queries.
+
+Avoid unnecessary renders.
+
+--------------------------------------------------
+
+# FINAL DELIVERABLE
+
+After implementation provide:
+
+1. Feature summary
+2. Files created
+3. Files modified
+4. API changes
+5. Database changes
+6. UI improvements
+7. Accessibility improvements
+8. Performance improvements
+9. Ideas for Community Challenge 3.0
+
+Overall goal: transform the Challenge page from a simple points leaderboard into a civic engagement experience that is educational, motivating, visually engaging, and believable, while keeping all estimates transparent and grounded in real-world energy concepts.

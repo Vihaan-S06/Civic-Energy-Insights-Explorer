@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Energy For Everyone"
+version = "1.0.0"
+id = "artifacts/energy-explainer"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23933
+
+[services.development]
+run = "pnpm --filter @workspace/energy-explainer run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/energy-explainer", "run", "build" ]
+publicDir = "artifacts/energy-explainer/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23933"
+BASE_PATH = "/"

@@ -1,0 +1,514 @@
+# Energy For Everyone — Community Energy Challenge Sprint
+
+You are a senior staff software engineer working on the Energy For Everyone codebase.
+
+Before writing any code, inspect the entire codebase, existing architecture, API contracts, shared libraries, Zustand stores, React Query hooks, and UI patterns.
+
+Follow all existing project conventions.
+
+DO NOT rewrite working code.
+DO NOT introduce breaking changes.
+DO NOT bypass OpenAPI contracts.
+DO NOT create duplicate state management systems.
+
+Your goal is to build a brand-new flagship feature:
+
+# Community Energy Challenge
+
+Transform Energy For Everyone from a data dashboard into a civic participation platform where communities can compete to reduce emissions and learn about energy.
+
+---
+
+# FEATURE OVERVIEW
+
+Users can create or join teams.
+
+Examples:
+
+- Schools
+- Neighborhoods
+- Scout Troops
+- Clubs
+- Community Organizations
+- Environmental Groups
+
+Each team earns points through participation.
+
+The challenge is educational and civic-focused.
+
+No real energy tracking is required.
+
+The platform estimates impact based on actions completed inside the app.
+
+---
+
+# PRIMARY OBJECTIVE
+
+Create a new page:
+
+/challenge
+
+that becomes a central hub for community participation.
+
+---
+
+# USER FLOW
+
+1. User visits Challenge page
+
+2. User sees:
+
+- Current leaderboard
+- Active teams
+- Community impact stats
+
+3. User creates or joins a team
+
+4. User earns points by:
+
+- Completing simulator scenarios
+- Making pledges
+- Sharing custom grids
+- Exploring educational content
+
+5. Team climbs leaderboard
+
+6. Platform estimates collective CO₂ reductions
+
+---
+
+# NEW PAGE
+
+Route:
+
+/challenge
+
+Add to navigation.
+
+Use existing design system:
+
+- shadcn/ui
+- Tailwind
+- Existing cards
+- Existing badges
+- Existing typography
+
+Match site styling perfectly.
+
+---
+
+# PAGE SECTIONS
+
+## Hero Section
+
+Title:
+
+Community Energy Challenge
+
+Subtitle:
+
+"See how small actions can create a cleaner grid when communities work together."
+
+Display:
+
+- Total Participants
+- Total Teams
+- Estimated CO₂ Reduction
+- Total Simulator Submissions
+
+Use animated KPI cards.
+
+---
+
+# TEAM LEADERBOARD
+
+Create leaderboard card.
+
+Columns:
+
+Rank
+Team Name
+Type
+Members
+Points
+Estimated CO₂ Saved
+
+Example:
+
+#1
+Naperville Central High School
+School
+48 Members
+12,420 Points
+12.4 Tons CO₂
+
+Display:
+
+Gold
+Silver
+Bronze styling for top 3.
+
+Current user's team should highlight.
+
+---
+
+# TEAM TYPES
+
+Support:
+
+School
+Neighborhood
+Scout Troop
+Club
+Community Group
+Other
+
+Use badges.
+
+---
+
+# CREATE TEAM
+
+Modal or card.
+
+Fields:
+
+Team Name
+Team Type
+City
+Description
+
+Create Team button.
+
+Generate:
+
+- unique ID
+- join code
+
+Store using existing backend patterns.
+
+---
+
+# JOIN TEAM
+
+Join code input.
+
+Users can join existing teams.
+
+Show:
+
+Team Name
+Type
+Member Count
+
+before confirming.
+
+---
+
+# CHALLENGE POINT SYSTEM
+
+Simulator Submission
+
++100 points
+
+Share Grid
+
++50 points
+
+Energy Pledge
+
++75 points
+
+Invite Friend
+
++150 points
+
+Educational Module Completion
+
++25 points
+
+Display all point values clearly.
+
+---
+
+# ENERGY PLEDGES
+
+New feature.
+
+Users can select pledges.
+
+Examples:
+
+□ Reduce thermostat by 2°F
+
+□ Turn off unused electronics
+
+□ Replace bulbs with LEDs
+
+□ Wash clothes with cold water
+
+□ Use less peak-hour electricity
+
+Each pledge grants points.
+
+Each pledge contributes estimated CO₂ savings.
+
+---
+
+# COMMUNITY IMPACT CALCULATOR
+
+Aggregate team actions.
+
+Estimate:
+
+Annual CO₂ Reduction
+
+Example:
+
+"We estimate your team's actions could reduce emissions by 8.4 tons annually."
+
+Display:
+
+- Tons CO₂
+- Equivalent trees planted
+- Cars removed from road
+
+Use EPA-style conversion factors.
+
+Document assumptions.
+
+---
+
+# TEAM DASHBOARD
+
+When viewing a team:
+
+Display:
+
+Team Score
+
+Ranking
+
+Member Count
+
+Recent Activity Feed
+
+Estimated Impact
+
+Challenge Progress
+
+Use:
+
+Progress bars
+Badges
+Cards
+
+---
+
+# ACTIVITY FEED
+
+Examples:
+
+"Sarah completed a 100% renewable grid."
+
+"Michael pledged to reduce peak-hour usage."
+
+"Naperville Central moved into 2nd place."
+
+Display timestamps.
+
+---
+
+# SIMULATOR INTEGRATION
+
+Integrate existing Simulator 2.0.
+
+When a user:
+
+- creates a custom grid
+- shares a grid
+- earns a high Grid Score
+
+award challenge points.
+
+Add:
+
+"Submit to Challenge"
+
+button.
+
+---
+
+# ACHIEVEMENTS SYSTEM
+
+Create badges.
+
+Examples:
+
+Grid Designer
+
+Completed first simulator
+
+Clean Energy Champion
+
+100% renewable grid
+
+Community Leader
+
+Created a team
+
+Top Contributor
+
+1,000+ points
+
+Carbon Cutter
+
+1 ton estimated reduction
+
+Display badges on profiles and teams.
+
+---
+
+# COMMUNITY INSIGHTS
+
+Generate dynamic summaries.
+
+Examples:
+
+"Schools currently lead the challenge with 42% of total points."
+
+"Neighborhood teams have submitted the most custom grids."
+
+"Texas teams have reduced the most estimated emissions."
+
+Create insight cards automatically from challenge data.
+
+---
+
+# BACKEND
+
+Create new API endpoints.
+
+Examples:
+
+GET /api/challenge/leaderboard
+
+GET /api/challenge/team/:id
+
+POST /api/challenge/team
+
+POST /api/challenge/join
+
+POST /api/challenge/pledge
+
+POST /api/challenge/simulator-submission
+
+GET /api/challenge/stats
+
+Maintain:
+
+- OpenAPI spec
+- Orval generation
+- Zod validation
+
+Follow existing architecture exactly.
+
+---
+
+# DATABASE
+
+Use Drizzle ORM.
+
+Create tables:
+
+teams
+
+members
+
+pledges
+
+activities
+
+achievements
+
+challenge_stats
+
+Use proper relations.
+
+Generate migrations.
+
+---
+
+# ACCESSIBILITY
+
+All controls:
+
+- keyboard accessible
+- aria labels
+- semantic headings
+
+Leaderboard:
+
+- screen-reader friendly
+
+Progress bars:
+
+- proper aria attributes
+
+---
+
+# PERFORMANCE
+
+Lazy-load Challenge page.
+
+Use React Query.
+
+Cache leaderboard.
+
+Avoid unnecessary rerenders.
+
+Follow existing QueryClient patterns.
+
+---
+
+# MOBILE EXPERIENCE
+
+Challenge page must be fully responsive.
+
+Leaderboard:
+
+desktop table
+
+mobile card layout
+
+Touch-friendly interactions.
+
+---
+
+# DEMO MOMENT
+
+The page should feel exciting.
+
+When someone visits:
+
+They should immediately think:
+
+"Wow, my school or neighborhood could actually participate in this."
+
+Prioritize engagement, clarity, and civic impact over complexity.
+
+---
+
+# FINAL DELIVERABLE
+
+After implementation provide:
+
+1. Architecture summary
+2. Files created
+3. Files modified
+4. Database schema changes
+5. API endpoints added
+6. UI components added
+7. Future expansion ideas
+
+Implement production-quality code consistent with the existing Energy For Everyone architecture.

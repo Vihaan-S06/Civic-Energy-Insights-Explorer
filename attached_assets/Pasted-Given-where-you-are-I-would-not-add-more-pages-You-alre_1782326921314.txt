@@ -1,0 +1,121 @@
+Given where you are, I would not add more pages. You already have a strong MVP. The next additions should increase credibility, usefulness, and demo impact.
+
+Tier 1 — Highest Impact
+1. Personal Energy Impact Calculator
+Add a new section to Take Action:
+
+Users enter:
+
+Home size
+
+State/region
+
+Monthly electricity bill
+
+EV ownership (yes/no)
+
+Output:
+
+Estimated annual electricity usage
+
+Estimated CO₂ footprint
+
+How much switching to a greener grid would reduce emissions
+
+This makes the project personal instead of just informational.
+
+2. Real EIA Data Integration
+This is still the biggest missing piece.
+
+When someone asks:
+
+"Where does this data come from?"
+
+You want to answer:
+
+"Directly from the U.S. Energy Information Administration."
+
+That instantly boosts credibility.
+
+3. Region Comparison Mode
+Add:
+
+Compare Regions
+
+Example:
+
+California vs Texas
+
+ERCOT vs PJM
+
+Show:
+
+Renewable %
+
+CO₂ intensity
+
+Price
+
+Grid Health
+
+This creates interesting discoveries and is great for demos.
+
+Tier 2 — Judges / Teachers Love This
+4. "Why Is My Grid Like This?"
+AI-style explanation engine.
+
+Example:
+
+Texas has lower prices because natural gas provides a large share of generation. However, this increases carbon intensity compared to regions with larger renewable portfolios.
+
+Generate a plain-English explanation for every region.
+
+5. Historical Milestones Timeline
+New card on Trends:
+
+Largest renewable growth year
+
+Lowest carbon year
+
+Highest electricity price year
+
+Biggest change in generation mix
+
+Makes the data tell a story.
+
+6. Grid Health Forecast
+Simple prediction model:
+
+Based on recent trends, renewable share is projected to increase from 31% to 34% over the next 12 months.
+
+Doesn't need AI—just trend extrapolation.
+
+Tier 3 — If You Have Extra Time
+7. User Accounts
+Allow:
+
+Saved region
+
+Saved simulator mixes
+
+Favorite comparisons
+
+8. Public Share Cards
+Generate a shareable image:
+
+"My custom grid scored A (92/100)"
+
+Perfect for Simulator virality.
+
+What I Would Build Next
+Real EIA data
+
+Region comparison mode
+
+Personal Energy Impact Calculator
+
+AI-style "Why Is My Grid Like This?" explanations
+
+Documentation + deployment polish
+
+Those five would move Energy For Everyone from a strong student project to something that feels like a real civic-tech platform.

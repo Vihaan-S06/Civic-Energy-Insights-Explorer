@@ -1,0 +1,650 @@
+Energy For Everyone 2.0
+A Civic Strategy Game
+Instead of just reading statistics, users become energy planners.
+
+They're responsible for designing an electric grid while balancing four competing goals:
+
+Keep electricity affordable
+
+Keep emissions low
+
+Keep the lights on
+
+Keep people happy
+
+There is no perfect solution, which makes the game interesting.
+
+Core Gameplay Loop
+A new player lands on the site.
+
+Instead of seeing lots of pages, they're immediately asked:
+
+Can you run an electric grid better than your state?
+
+One button:
+
+Start Playing
+
+Step 1 — Choose Your Region
+Instead of a dropdown.
+
+Show a clickable US map.
+
+Click Texas.
+
+You become the Energy Director of Texas.
+
+Immediately show:
+
+Population
+
+Annual electricity demand
+
+Current energy mix
+
+Average price
+
+CO₂ emissions
+
+Grid reliability
+
+Renewable percentage
+
+Current challenges
+
+Example
+
+Texas
+
+Population
+31 million
+
+Renewables
+29%
+
+Price
+12.1¢
+
+Grid Score
+63/100
+
+Challenges
+
+Summer demand
+
+Natural gas dependence
+
+Transmission bottlenecks
+
+Step 2 — Meet Your Advisors
+Instead of tutorials.
+
+Introduce characters.
+
+These become guides throughout the game.
+
+Examples
+
+⚡ Grid Engineer
+
+"I'm worried about blackouts."
+
+🌱 Climate Scientist
+
+"We need fewer emissions."
+
+💵 Economist
+
+"Families can't afford higher bills."
+
+🏭 Industry Representative
+
+"Factories need reliable electricity."
+
+👨‍👩‍👧 Citizen
+
+"My power bill keeps increasing."
+
+Whenever you make decisions, these advisors react.
+
+The Main Simulator
+This becomes far deeper.
+
+Current sliders become "Build Capacity."
+
+Every energy source has:
+
+Current %
+
+Installed Capacity
+
+Operating Cost
+
+Construction Cost
+
+Carbon Intensity
+
+Reliability
+
+Weather Dependence
+
+Construction Time
+
+Public Approval
+
+Political Support
+
+Land Use
+
+Water Use
+
+Example
+
+Wind
+
+Current:
+18%
+
+Construction
+
++$4 billion
+
+Build Time
+
+3 years
+
+Reliability
+
+Medium
+
+Weather
+
+High
+
+CO₂
+
+Very Low
+
+Public Support
+
+82%
+
+Every Decision Has Consequences
+Add more wind?
+
+Price changes.
+
+CO₂ changes.
+
+Reliability changes.
+
+Transmission congestion changes.
+
+Storage demand changes.
+
+Public opinion changes.
+
+Budget changes.
+
+No decision is purely good.
+
+Budget System
+Every state gets an annual budget.
+
+Example
+
+Texas
+
+$48 Billion
+
+You can't spend infinitely.
+
+Every decision costs money.
+
+Example
+
+Build
+
+5 GW Solar
+
+Cost
+
+$8.2 Billion
+
+Remaining
+
+$39.8 Billion
+
+Time System
+Instead of instant results.
+
+The game progresses.
+
+2026
+
+↓
+
+2027
+
+↓
+
+2028
+
+↓
+
+2029
+
+↓
+
+2030
+
+As years pass
+
+Plants retire
+
+Demand grows
+
+Weather changes
+
+Population changes
+
+Fuel prices fluctuate
+
+Technology improves
+
+Random Events
+This makes every playthrough unique.
+
+Examples
+
+Heat wave
+
+Demand spikes.
+
+Coal plant failure
+
+Grid reliability drops.
+
+Federal tax credits
+
+Solar becomes cheaper.
+
+Major hurricane
+
+Transmission damage.
+
+Battery breakthrough
+
+Storage price falls.
+
+Natural gas shortage
+
+Gas prices increase.
+
+Nuclear maintenance
+
+Capacity reduced.
+
+Wildfire
+
+Transmission outage.
+
+Economic boom
+
+Electric demand rises.
+
+Recession
+
+Demand falls.
+
+These events force players to adapt.
+
+Public Approval
+Every decision affects voters.
+
+Categories
+
+Environmental groups
+
+Businesses
+
+Families
+
+Rural residents
+
+Industry
+
+Government
+
+Media
+
+Example
+
+Build wind farms
+
+Environmentalists
+
++15
+
+Rural Communities
+
+-4
+
+Industry
+
++2
+
+Media
+
++7
+
+Grid Reliability
+One of the biggest missing gameplay mechanics.
+
+Show:
+
+Reserve Margin
+
+Peak Demand
+
+Generation Capacity
+
+Battery Backup
+
+Transmission Capacity
+
+Blackout Risk
+
+If reliability falls too low...
+
+Rolling blackouts occur.
+
+Citizens become unhappy.
+
+Businesses lose money.
+
+You lose points.
+
+Carbon System
+Instead of one CO₂ number.
+
+Break it down.
+
+Transportation
+
+Residential
+
+Commercial
+
+Industrial
+
+Electricity
+
+Power Plants
+
+See exactly where emissions originate.
+
+Economy
+Your grid affects the economy.
+
+Cheap electricity
+
+↓
+
+Businesses grow
+
+↓
+
+Tax revenue increases
+
+↓
+
+Larger future budget
+
+Expensive electricity
+
+↓
+
+Factories leave
+
+↓
+
+Lower revenue
+
+↓
+
+Smaller budget
+
+Unlockable Technologies
+Instead of everything available immediately.
+
+Unlock over time.
+
+Examples
+
+Advanced Nuclear
+
+Carbon Capture
+
+Long-Duration Batteries
+
+Fusion (late game)
+
+Offshore Wind
+
+Enhanced Geothermal
+
+Hydrogen Storage
+
+Vehicle-to-Grid
+
+AI Demand Response
+
+Microgrids
+
+Each has:
+
+research cost
+
+construction time
+
+advantages
+
+tradeoffs
+
+Skill Tree
+Earn Energy XP.
+
+Unlock
+
+Better forecasting
+
+Cheaper renewables
+
+Improved transmission
+
+Public outreach
+
+Higher efficiency
+
+Grid resilience
+
+Achievements
+Hundreds.
+
+Examples
+
+100% Renewable
+
+Zero Blackouts
+
+Lowest Price
+
+Carbon Crusher
+
+Grid Genius
+
+Economic Boom
+
+Battery Master
+
+Transmission Wizard
+
+Climate Hero
+
+Nuclear Expert
+
+Budget Wizard
+
+Story Campaign
+Instead of one endless mode.
+
+Include scenarios.
+
+Example Campaigns
+
+California 2035
+
+Reach 90% clean energy.
+
+Texas Heatwave
+
+Prevent blackouts.
+
+Florida Hurricane
+
+Restore the grid.
+
+New York Winter Storm
+
+Maintain reliability.
+
+National Challenge
+
+Run the entire US grid.
+
+Sandbox Mode
+Unlimited money.
+
+Everything unlocked.
+
+No failures.
+
+Perfect for classrooms.
+
+Classroom Mode
+Teachers generate a classroom code.
+
+Students compete.
+
+Teacher dashboard shows
+
+Scores
+
+CO₂
+
+Reliability
+
+Price
+
+Best decisions
+
+Most improved
+
+Community Mode
+Instead of the earlier challenge concept.
+
+Communities solve a shared scenario.
+
+Example
+
+Reduce city emissions 30%.
+
+Each player's simulator contributes.
+
+Combined results update a community dashboard.
+
+Dynamic News System
+Generate headlines.
+
+Examples
+
+"Texas Approves 6 GW Solar Expansion"
+
+"Electric Bills Fall 12%"
+
+"Rolling Blackouts Hit Houston"
+
+"Battery Storage Hits Record"
+
+Makes the world feel alive.
+
+Interactive Map
+The U.S. map isn't just for selecting a region.
+
+Layers include:
+
+Renewable generation
+
+CO₂ intensity
+
+Electricity prices
+
+Peak demand
+
+Population growth
+
+Weather
+
+Transmission lines
+
+Major power plants
+
+Wind resources
+
+Solar potential
+
+Hydroelectric resources
+
+Users can compare any two regions side by side.
+
+AI Energy Advisor
+An assistant that explains decisions in plain language.
+
+For example:
+
+"Adding 10 GW of wind lowered emissions by 8%, but reliability fell because wind output is variable. Consider adding battery storage or flexible natural gas generation to improve stability."
+
+The goal is to teach users why outcomes changed, not just show new numbers.
+
+Endgame
+Every completed run receives a detailed report:
+
+Overall Grid Grade (A–F)
+
+Final renewable percentage
+
+Average electricity price
+
+CO₂ emissions change
+
+Reliability score
+
+Budget performance
+
+Public approval
+
+Economic growth
+
+Blackout events
+
+Major milestones unlocked
+
+Players can compare their results against the real-world grid and share their reports.
+
+Design philosophy
+The experience should never feel like a collection of disconnected pages. Everything should revolve around a single gameplay loop:
+
+Learn → Make a decision → See realistic consequences → Adapt → Improve.
+
+That approach makes the project educational, replayable, and engaging while staying grounded in real energy-system tradeoffs rather than turning it into a simple point-collecting game.

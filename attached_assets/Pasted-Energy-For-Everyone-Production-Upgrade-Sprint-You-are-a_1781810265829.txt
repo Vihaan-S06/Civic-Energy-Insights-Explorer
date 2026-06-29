@@ -1,0 +1,404 @@
+Energy For Everyone — Production Upgrade Sprint
+You are a senior staff software engineer working inside an existing React + TypeScript + Express monorepo.
+
+Your job is to improve the existing Energy For Everyone civic energy platform without breaking any existing functionality.
+
+Existing Project Context
+The application already contains:
+
+React 18 + Vite frontend
+
+TypeScript everywhere
+
+Tailwind CSS + shadcn/ui
+
+Recharts
+
+Zustand region store
+
+TanStack Query
+
+Express 5 backend
+
+OpenAPI-first architecture
+
+Orval-generated API hooks
+
+Zod validation
+
+8 completed pages
+
+8 API endpoints
+
+Energy Mix Simulator
+
+Regional Rankings
+
+Action Hub
+
+Live Grid page
+
+Alerts page
+
+The application is fully functional and must remain stable.
+
+Goal
+Transform the project from a good MVP into a polished, competition/demo-ready civic technology platform.
+
+Do NOT remove any existing functionality.
+
+Do NOT redesign the app from scratch.
+
+Instead, build the following improvements carefully and professionally.
+
+PHASE 1 — REAL DATA INTEGRATION
+Objective
+Replace the most important hardcoded datasets with real EIA data.
+
+Requirements
+Create a dedicated data service layer:
+
+services/eia.ts
+Add:
+
+request helpers
+
+response validation
+
+error handling
+
+caching
+
+fallback behavior
+
+Implement
+Real data for:
+
+Overview KPIs
+
+Renewable %
+
+Electricity price
+
+CO₂ intensity calculations
+
+Generation mix
+
+Requirements
+If EIA API fails:
+
+app must never crash
+
+fallback to existing hardcoded data
+
+show subtle "estimated data" badge
+
+Add
+Loading states
+
+Error states
+
+Retry button
+
+Skeleton cards
+
+for all affected pages.
+
+PHASE 2 — SIMULATOR 2.0
+The simulator is currently the strongest feature.
+
+Make it exceptional.
+
+Add Presets
+Create quick-select buttons:
+
+Current US Grid
+Natural Gas 42%
+
+Coal 18%
+
+Nuclear 18%
+
+Wind 10%
+
+Solar 6%
+
+Hydro 6%
+
+100% Renewable
+Wind 40%
+
+Solar 40%
+
+Hydro 20%
+
+Lowest Carbon
+Heavy nuclear + renewables
+
+Lowest Cost
+Optimized for cheapest electricity
+
+Texas Style
+Reflect ERCOT mix
+
+California Style
+Reflect California mix
+
+Add Grid Score
+Generate a grade:
+
+A
+B
+C
+D
+F
+
+Based on:
+
+renewable %
+
+carbon intensity
+
+estimated price
+
+Show:
+
+Large score badge
+
+Examples:
+
+"A — Excellent"
+
+"C — Average"
+
+"F — High Emissions"
+
+Add Insights Engine
+Generate dynamic explanations.
+
+Example:
+
+"If every US state used this mix, national emissions could decrease substantially."
+
+or
+
+"This mix is affordable but relies heavily on fossil fuels."
+
+Create intelligent rule-based recommendations.
+
+Add Shareable Mixes
+Create:
+
+Share button
+
+Generate URL:
+
+/simulate?gas=20&coal=10&nuclear=20&wind=25&solar=15&hydro=10
+Requirements:
+
+load values from URL
+
+copy share link
+
+restore state on refresh
+
+PHASE 3 — LIVE GRID UPGRADE
+Current version is simulated.
+
+Improve realism.
+
+Add
+Auto refresh
+
+Every 60 seconds
+
+Display:
+
+last updated timestamp
+
+data source badge
+
+live/estimated status
+
+Add Grid Health Score
+0–100
+
+Based on:
+
+renewable %
+
+carbon intensity
+
+demand level
+
+Show:
+
+Green
+Yellow
+Red
+
+status indicators.
+
+PHASE 4 — POLISH & UX
+Improve quality everywhere.
+
+Add Better Tooltips
+Explain:
+
+renewable %
+
+carbon intensity
+
+electricity prices
+
+generation mix
+
+Use simple language.
+
+Improve Empty States
+Every API failure should show:
+
+icon
+
+explanation
+
+retry button
+
+Never show blank sections.
+
+Mobile Optimization
+Audit:
+
+charts
+
+simulator
+
+rankings
+
+action hub
+
+Ensure:
+
+no overflow
+
+touch friendly controls
+
+responsive layouts
+
+Add Micro Animations
+Use subtle motion only.
+
+Examples:
+
+card hover
+
+chart fade-in
+
+score transitions
+
+button feedback
+
+Avoid flashy effects.
+
+PHASE 5 — ACCESSIBILITY
+Implement:
+
+keyboard navigation
+
+ARIA labels
+
+focus states
+
+semantic headings
+
+screen reader support
+
+Target Lighthouse accessibility score above 95.
+
+PHASE 6 — PERFORMANCE
+Optimize:
+
+React renders
+
+chart rendering
+
+expensive calculations
+
+simulator updates
+
+Requirements:
+
+memoize expensive computations
+
+lazy-load pages
+
+minimize re-renders
+
+Target:
+
+Lighthouse Performance > 90
+
+Accessibility > 95
+
+Best Practices > 95
+
+PHASE 7 — TESTING
+Create:
+
+Unit Tests
+For:
+
+simulator calculations
+
+score calculations
+
+recommendation engine
+
+Integration Tests
+For:
+
+region switching
+
+API loading
+
+fallback behavior
+
+Edge Cases
+percentages never exceed 100
+
+share URLs restore correctly
+
+invalid URL params handled safely
+
+API failures never crash UI
+
+IMPORTANT RULES
+Preserve all existing architecture.
+
+Preserve OpenAPI + Orval workflow.
+
+Preserve Zustand region state.
+
+Preserve current design language.
+
+Do not introduce breaking changes.
+
+Use TypeScript strictly.
+
+Use reusable components.
+
+Keep code production-quality.
+
+Update only what is necessary.
+
+At the end, provide a summary of:
+
+files created
+
+files modified
+
+features completed
+
+any remaining TODOs
+
+Begin implementation now and work through all phases in order.

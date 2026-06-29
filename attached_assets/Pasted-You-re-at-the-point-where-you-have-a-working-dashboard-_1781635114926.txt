@@ -1,0 +1,252 @@
+You're at the point where you have a working dashboard. The biggest mistake now would be adding random features. Instead, focus on features that move the project closer to its mission:
+
+Make energy data understandable and help people take action.
+
+Right now, your site is very good at the "understand" part. It needs more of the "take action" part.
+
+Priority 1: Action Hub (Highest Impact)
+This was one of the strongest parts of the original project idea.
+
+Contact Your Officials
+Allow users to generate emails to:
+
+City council members
+
+Sustainability offices
+
+Utility companies
+
+Example:
+
+"Renewable energy in my region has decreased 8% over the last year. I would like to know what plans exist to increase clean energy generation."
+
+User enters:
+
+Name
+
+City
+
+Issue
+
+The site generates an editable email.
+
+Personalized Recommendations
+If a region has:
+
+High fossil fuel use → suggest solar programs
+
+High electricity prices → suggest efficiency programs
+
+High CO₂ intensity → suggest local advocacy actions
+
+Example:
+
+Top Actions For Texas
+
+1. Support community solar projects
+2. Reduce peak-hour electricity use
+3. Contact local utility about renewable targets
+This immediately makes the data useful.
+
+Community Project Ideas
+Users can submit ideas:
+
+Install solar at schools
+Create EV charging stations
+Community battery storage
+Tree planting initiative
+Display them publicly.
+
+Priority 2: Better Data Visualizations
+Historical Comparison
+Add:
+
+2026 vs 2025
+2026 vs 2016
+Users love comparisons.
+
+Example:
+
+Solar Generation
+
+2016: 3%
+2026: 18%
+
+↑ 500% increase
+Energy Source Simulator
+Interactive sliders:
+
+Coal: 20%
+Gas: 30%
+Wind: 25%
+Solar: 25%
+Then calculate:
+
+CO₂ emissions
+
+Renewable percentage
+
+Estimated cost
+
+This teaches users how energy systems work.
+
+Forecasting
+Use simple linear regression.
+
+Show:
+
+Projected Renewable Share
+
+2027: 42%
+2028: 46%
+2029: 50%
+This makes the dashboard feel intelligent.
+
+Priority 3: Geographic Features
+Interactive Map
+Instead of dropdowns:
+
+Click California
+
+Click Texas
+
+Click New York
+
+View data instantly.
+
+This is a huge visual upgrade.
+
+County-Level Data
+If available:
+
+State
+ → County
+   → City
+People care much more about local information.
+
+Regional Rankings
+Show:
+
+Top Renewable Regions
+
+1. Washington
+2. California
+3. New York
+
+Bottom Regions
+
+1. Texas
+2. Florida
+3. ...
+Rankings are highly engaging.
+
+Priority 4: Explainability
+Explain This Number
+A button next to every metric:
+
+CO₂ Intensity
+[?]
+Clicking it explains:
+
+This measures how much carbon dioxide
+is produced for each kilowatt-hour of electricity.
+Lower numbers are better.
+This aligns perfectly with your mission.
+
+Energy Glossary
+Terms:
+
+kWh
+
+MWh
+
+Capacity Factor
+
+Baseload
+
+Grid Reliability
+
+Carbon Intensity
+
+Most people don't know these.
+
+Priority 5: Community Features
+Share Snapshot
+Generate images like:
+
+Texas Energy Snapshot
+
+Renewables: 38%
+CO₂ Intensity: 0.41 kg/kWh
+
+Renewables increased 12% this year.
+Perfect for social media.
+
+Public Dashboard Links
+Users can share:
+
+energyforall.com/texas
+energyforall.com/california
+Monthly Energy Report
+Generate automatically:
+
+June 2026 Report
+
+Renewables ↑ 4%
+Coal ↓ 6%
+Natural Gas ↑ 2%
+
+Grid Status: Normal
+Priority 6: Advanced Features (If You Have Time)
+Real EIA API Integration
+Currently you likely use downloaded CSVs.
+
+Upgrade to:
+
+EIA API
+Benefits:
+
+Automatic updates
+
+Less manual work
+
+More professional
+
+Automated Data Pipeline
+Create:
+
+Python ETL
+ ↓
+Clean Data
+ ↓
+JSON
+ ↓
+Website Updates
+This is excellent for portfolios and competitions.
+
+User Accounts
+Allow:
+
+Save favorite regions
+
+Save alerts
+
+Save reports
+
+Not necessary, but impressive.
+
+If I Were Building This For a Competition
+My next three features would be:
+
+1. Interactive U.S. Map
+2. Action Hub with email templates
+3. Explain This Number panels
+Those three features would transform the project from:
+
+"A dashboard that displays energy data"
+
+into
+
+"A civic platform that helps citizens understand and influence energy policy"
+
+which is much closer to the original LocalEnergy Lens vision and would stand out much more to judges, teachers, and community organizations.
