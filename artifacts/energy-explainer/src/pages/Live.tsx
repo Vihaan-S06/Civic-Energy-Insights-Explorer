@@ -11,17 +11,15 @@ import { cn } from "@/lib/utils";
 
 const REFETCH_INTERVAL = 60_000;
 
-function useSecondsSince(isoTimestamp: string | undefined): number {
+function useSecondsSince(timestampMs: number | undefined): number {
   const [seconds, setSeconds] = useState(0);
   useEffect(() => {
-    if (!isoTimestamp) return;
-    const tick = () => {
-      setSeconds(Math.floor((Date.now() - new Date(isoTimestamp).getTime()) / 1000));
-    };
+    if (!timestampMs) return;
+    const tick = () => setSeconds(Math.floor((Date.now() - timestampMs) / 1000));
     tick();
     const id = setInterval(tick, 5000);
     return () => clearInterval(id);
-  }, [isoTimestamp]);
+  }, [timestampMs]);
   return seconds;
 }
 
@@ -51,8 +49,13 @@ export default function Live() {
     }
   );
 
-  const secondsSince = useSecondsSince(mix?.asOf);
-  const handleRefresh = useCallback(() => { void refetch(); }, [refetch]);
+  const secondsSince = useSecondsSince(dataUpdatedAt);
+  const [refreshing, setRefreshing] = useState(false);
+const handleRefresh = useCallback(async () => {
+  setRefreshing(true);
+  await Promise.all([refetch(), new Promise((r) => setTimeout(r, 600))]);
+  setRefreshing(false);
+}, [refetch]);
 
   const freshLabel =
     secondsSince < 30
@@ -83,7 +86,7 @@ export default function Live() {
     );
   }
 
-  if (isLoading || !mix) {
+  if (isLoading || refreshing || !mix) {
     return (
       <div className="space-y-6 animate-pulse" aria-busy="true" aria-label="Loading live grid data">
         <Skeleton className="h-12 w-1/2 rounded-xl" />

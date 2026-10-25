@@ -15,8 +15,9 @@ const Action = lazy(() => import("@/pages/Action"));
 const Simulate = lazy(() => import("@/pages/Simulate"));
 const Rankings = lazy(() => import("@/pages/Rankings"));
 const Challenge = lazy(() => import("@/pages/Challenge"));
-const Game = lazy(() => import("@/pages/Game"));
-const Events = lazy(() => import("@/pages/Events"));
+
+
+
 const NotFound = lazy(() => import("@/pages/not-found"));
 
 const queryClient = new QueryClient({
@@ -59,8 +60,7 @@ function Router() {
           <Route path="/simulate" component={Simulate} />
           <Route path="/rankings" component={Rankings} />
           <Route path="/challenge" component={Challenge} />
-          <Route path="/game" component={Game} />
-          <Route path="/events" component={Events} />
+          
           <Route component={NotFound} />
         </Switch>
       </Suspense>

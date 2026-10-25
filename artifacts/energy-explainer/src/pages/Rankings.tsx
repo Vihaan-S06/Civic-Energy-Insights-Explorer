@@ -64,7 +64,7 @@ export default function Rankings() {
                 entry={entry} 
                 metric={`${entry.renewablePercent}%`} 
                 subText="Renewables"
-                isSelected={entry.region === selectedRegion}
+                isSelected={false}
               />
             ))}
           </TabsContent>
@@ -75,7 +75,7 @@ export default function Rankings() {
                 entry={entry} 
                 metric={`${entry.co2IntensityGPerKWh}g`} 
                 subText="CO₂ / kWh"
-                isSelected={entry.region === selectedRegion}
+                isSelected={false}
               />
             ))}
           </TabsContent>
@@ -86,7 +86,7 @@ export default function Rankings() {
                 entry={entry} 
                 metric={`${entry.averageRetailPriceCentsPerKWh}¢`} 
                 subText="per kWh"
-                isSelected={entry.region === selectedRegion}
+                isSelected={false}
               />
             ))}
           </TabsContent>

@@ -237,6 +237,13 @@ function generateTrends(region: string): object[] {
       nuclearGWh,
       co2IntensityGPerKWh: co2,
       renewablePercent: Math.round(renewablePct * 10) / 10,
+      lastUpdated: new Date().toLocaleString("en-US", {
+        month: "long",
+        day: "numeric",
+        year: "numeric",
+        hour: "numeric",
+        minute: "2-digit",
+      }),
     };
   });
 }

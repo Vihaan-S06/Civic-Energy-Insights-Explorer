@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Globe, Zap, Sun, AlertTriangle, TrendingUp, Activity, Users, Sliders, Trophy, Flame, Gamepad2, CalendarDays } from "lucide-react";
+import { Globe, Zap, Sun, AlertTriangle, TrendingUp, Activity, Users, Sliders, Trophy, Flame} from "lucide-react";
 import { RegionSelector } from "./RegionSelector";
 import { cn } from "@/lib/utils";
 
@@ -15,9 +15,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
     { href: "/action", label: "Take Action", icon: Users },
     { href: "/simulate", label: "Simulator", icon: Sliders },
     { href: "/rankings", label: "Rankings", icon: Trophy },
-    { href: "/challenge", label: "Challenge", icon: Flame },
-    { href: "/game", label: "Play Game", icon: Gamepad2 },
-    { href: "/events", label: "Events", icon: CalendarDays },
   ];
 
   return (
